@@ -1,98 +1,167 @@
+import { useMemo, useState } from "react";
+import "./index.css";
+
 export default function App() {
+  const [search, setSearch] = useState("");
+
   const menu = {
-    Burgers: [
-      { name: "Classic Burger", price: "$6" },
-      { name: "Cheese Burger", price: "$7" },
-      { name: "Double King Burger", price: "$9" },
+    "ساندويش الملك": [
+      {
+        name: "كريسبي",
+        price: "450,000",
+        desc: "صوص كوكتيل - صوص شدر - سلطة - خس - بطاطا",
+      },
+      {
+        name: "تشيز طاووق",
+        price: "450,000",
+        desc: "ثوم - بطاطا - جبنة موزاريلا",
+      },
+      {
+        name: "برغر",
+        price: "450,000",
+        desc: "مايونيز - كتشب - سلطة - بطاطا",
+      },
+      {
+        name: "تشيز برغر",
+        price: "450,000",
+        desc: "صوص شدر - بطاطا - مايونيز - خس - بندورة",
+      },
     ],
-    Sandwiches: [
-      { name: "Chicken Sandwich", price: "$5" },
-      { name: "Tawook Sandwich", price: "$5" },
-      { name: "Crispy Sandwich", price: "$6" },
+
+    "شاورما": [
+      {
+        name: "شاورما دجاج دبل",
+        price: "300,000",
+      },
+      {
+        name: "شاورما لحمة كبيرة",
+        price: "350,000",
+      },
+      {
+        name: "كيلو شاورما دجاج",
+        price: "1,500,000",
+      },
     ],
-    Meals: [
-      { name: "Family Meal", price: "$15" },
-      { name: "King Meal", price: "$12" },
+
+    "مشاوي": [
+      {
+        name: "سندوش كفتة",
+        price: "400,000",
+      },
+      {
+        name: "سندوش شقف",
+        price: "400,000",
+      },
+      {
+        name: "وجبة مشاوي مشكل",
+        price: "600,000",
+      },
     ],
-    Drinks: [
-      { name: "Cola", price: "$2" },
-      { name: "Water", price: "$1" },
-      { name: "Orange Juice", price: "$3" },
+
+    "مقبلات": [
+      {
+        name: "صحن بطاطا صغير",
+        price: "150,000",
+      },
+      {
+        name: "صحن بطاطا وسط",
+        price: "200,000",
+      },
+      {
+        name: "صحن حمص اكسترا",
+        price: "250,000",
+      },
+    ],
+
+    "المرطبات": [
+      {
+        name: "بيبسي",
+        price: "70,000",
+      },
+      {
+        name: "مياه صغيرة",
+        price: "50,000",
+      },
     ],
   };
 
-  return (
-    <div style={{
-      minHeight: "100vh",
-      background: "linear-gradient(to bottom, #ffffff, #fff8dc)",
-      fontFamily: "Arial",
-      padding: "20px"
-    }}>
-      
-      {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1 style={{
-          color: "#d4af37",
-          fontSize: "64px",
-          letterSpacing: "6px",
-          margin: 0
-        }}>
-          الملك
-        </h1>
+  const filtered = useMemo(() => {
+    if (!search) return menu;
 
-        <p style={{
-          color: "#666",
-          marginTop: "10px",
-          fontSize: "16px"
-        }}>
-          Luxury Taste • Premium Experience
+    const result = {};
+
+    Object.entries(menu).forEach(([category, items]) => {
+      const filteredItems = items.filter(
+        (item) =>
+          item.name.includes(search) ||
+          (item.desc && item.desc.includes(search))
+      );
+
+      if (filteredItems.length) {
+        result[category] = filteredItems;
+      }
+    });
+
+    return result;
+  }, [search]);
+
+  return (
+    <div className="page">
+
+      <div className="hero">
+        <h1 className="title">الملك</h1>
+
+        <p className="subtitle">
+          ROYAL TASTE EXPERIENCE
         </p>
+
+        <input
+          className="search"
+          placeholder="ابحث عن طبقك..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
-      {/* Menu */}
-      {Object.entries(menu).map(([category, items]) => (
-        <div key={category} style={{
-          maxWidth: "650px",
-          margin: "0 auto 25px",
-          background: "white",
-          border: "1px solid #f1e6b8",
-          borderRadius: "20px",
-          padding: "20px",
-          boxShadow: "0 8px 25px rgba(0,0,0,0.05)"
-        }}>
-          
-          <h2 style={{
-            color: "#d4af37",
-            borderBottom: "1px solid #f1e6b8",
-            paddingBottom: "10px",
-            marginBottom: "15px"
-          }}>
+      {Object.entries(filtered).map(([category, items]) => (
+        <section className="section" key={category}>
+
+          <h2 className="category">
             {category}
           </h2>
 
-          {items.map((item, i) => (
-            <div key={i} style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "10px 0",
-              borderBottom: "1px dashed #eee"
-            }}>
-              <span>{item.name}</span>
-              <b style={{ color: "#d4af37" }}>{item.price}</b>
-            </div>
-          ))}
-        </div>
+          <div className="items">
+
+            {items.map((item, index) => (
+              <div className="item" key={index}>
+
+                <div className="text">
+                  <div className="name">
+                    {item.name}
+                  </div>
+
+                  {item.desc && (
+                    <div className="desc">
+                      {item.desc}
+                    </div>
+                  )}
+                </div>
+
+                <div className="price">
+                  {item.price}
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </section>
       ))}
 
-      {/* Footer */}
-      <div style={{
-        textAlign: "center",
-        marginTop: "40px",
-        color: "#888",
-        fontSize: "14px"
-      }}>
-        Thank you for visiting الملك
-      </div>
+      <footer className="footer">
+        Crafted for a premium royal dining experience ✨
+      </footer>
 
     </div>
   );
