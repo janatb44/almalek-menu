@@ -109,7 +109,7 @@ export default function App() {
     <div className="page">
 
       <div className="hero">
-        <h1 className="title">الملك</h1>
+        <h1 className="title">مطعم الملك</h1>
 
         <p className="subtitle">
           ROYAL TASTE EXPERIENCE
@@ -117,7 +117,7 @@ export default function App() {
 
         <input
           className="search"
-          placeholder="ابحث عن طبقك..."
+          placeholder="ابحث عن طبقك"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
