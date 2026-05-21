@@ -1,162 +1,430 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import "./index.css";
 
+/* IMAGES */
+
+import ananiAsirImg from "./assets/ananiAsir.png";
+import mokabelatImg from "./assets/mokabelat.png";
+import cocktailsImg from "./assets/cocks.png";
+import faroujImg from "./assets/farouj.png";
+import freshJuiceImg from "./assets/freshJuice.png";
+import hotDrinksImg from "./assets/hotDrinks.png";
+import mashawiImg from "./assets/mashawi.png";
+import mashroubatKhasaImg from "./assets/mashroubatKhasa.png";
+import mixJuiceImg from "./assets/mixJuice.png";
+import moratabatImg from "./assets/moratebat.png";
+import sandwichImg from "./assets/sandwich.png";
+import shawarmaImg from "./assets/shawarma.png";
+import sohounImg from "./assets/sohoun.png";
+import wajabatImg from "./assets/wajabat.png";
+
 export default function App() {
+
   const [search, setSearch] = useState("");
 
-  const menu = {
-    "ساندويش الملك": [
-      {
-        name: "كريسبي",
-        price: "450,000",
-        desc: "صوص كوكتيل - صوص شدر - سلطة - خس - بطاطا",
-      },
-      {
-        name: "تشيز طاووق",
-        price: "450,000",
-        desc: "ثوم - بطاطا - جبنة موزاريلا",
-      },
-      {
-        name: "برغر",
-        price: "450,000",
-        desc: "مايونيز - كتشب - سلطة - بطاطا",
-      },
-      {
-        name: "تشيز برغر",
-        price: "450,000",
-        desc: "صوص شدر - بطاطا - مايونيز - خس - بندورة",
-      },
-    ],
+  const menu = [
 
-    "شاورما": [
-      {
-        name: "شاورما دجاج دبل",
-        price: "300,000",
-      },
-      {
-        name: "شاورما لحمة كبيرة",
-        price: "350,000",
-      },
-      {
-        name: "كيلو شاورما دجاج",
-        price: "1,500,000",
-      },
-    ],
+    {
+      title: "ساندويشات",
+      image: sandwichImg,
 
-    "مشاوي": [
-      {
-        name: "سندوش كفتة",
-        price: "400,000",
-      },
-      {
-        name: "سندوش شقف",
-        price: "400,000",
-      },
-      {
-        name: "وجبة مشاوي مشكل",
-        price: "600,000",
-      },
-    ],
+      items: [
+        {
+          name: "كريسبي",
+          price: "450,000",
+          desc: "صوص كوكتيل - صوص شدر - سلطة - خس - بطاطا",
+        },
 
-    "مقبلات": [
-      {
-        name: "صحن بطاطا صغير",
-        price: "150,000",
-      },
-      {
-        name: "صحن بطاطا وسط",
-        price: "200,000",
-      },
-      {
-        name: "صحن حمص اكسترا",
-        price: "250,000",
-      },
-    ],
+        {
+          name: "تشيز برغر",
+          price: "450,000",
+          desc: "صوص شدر - بطاطا - مايونيز - خس",
+        },
 
-    "المرطبات": [
-      {
-        name: "بيبسي",
-        price: "70,000",
-      },
-      {
-        name: "مياه صغيرة",
-        price: "50,000",
-      },
-    ],
-  };
+        {
+          name: "فاهيتا",
+          price: "450,000",
+          desc: "صوص أفوكا - خس - ذرة",
+        },
+      ],
+    },
 
-  const filtered = useMemo(() => {
-    if (!search) return menu;
+    {
+      title: "شاورما",
+      image: shawarmaImg,
 
-    const result = {};
+      items: [
+        {
+          name: "شاورما دجاج دبل",
+          price: "300,000",
+        },
 
-    Object.entries(menu).forEach(([category, items]) => {
-      const filteredItems = items.filter(
-        (item) =>
-          item.name.includes(search) ||
-          (item.desc && item.desc.includes(search))
-      );
+        {
+          name: "شاورما لحمة كبيرة",
+          price: "350,000",
+        },
 
-      if (filteredItems.length) {
-        result[category] = filteredItems;
-      }
-    });
+        {
+          name: "كيلو شاورما دجاج",
+          price: "1,500,000",
+        },
+      ],
+    },
 
-    return result;
-  }, [search]);
+    {
+      title: "مشاوي",
+      image: mashawiImg,
+
+      items: [
+        {
+          name: "سندوش كفتة",
+          price: "400,000",
+        },
+
+        {
+          name: "سندوش شقف",
+          price: "400,000",
+        },
+
+        {
+          name: "وجبة مشاوي مشكل",
+          price: "600,000",
+        },
+      ],
+    },
+
+    {
+      title: "وجبات",
+      image: wajabatImg,
+
+      items: [
+        {
+          name: "وجبة زنجر",
+          price: "600,000",
+        },
+
+        {
+          name: "وجبة شاورما 2x",
+          price: "650,000",
+        },
+
+        {
+          name: "كريسبي دجاج 5 قطع",
+          price: "600,000",
+        },
+      ],
+    },
+
+    {
+      title: "فروج",
+      image: faroujImg,
+
+      items: [
+        {
+          name: "فروج فحم",
+          price: "1,250,000",
+        },
+
+        {
+          name: "فروج غاز",
+          price: "1,150,000",
+        },
+
+        {
+          name: "نصف فروج غاز",
+          price: "700,000",
+        },
+      ],
+    },
+
+    {
+      title: "مقبلات",
+      image: mokabelatImg,
+
+      items: [
+        {
+          name: "صحن بطاطا صغير",
+          price: "150,000",
+        },
+
+        {
+          name: "صحن حمص اكسترا",
+          price: "250,000",
+        },
+
+        {
+          name: "صحن ثوم",
+          price: "100,000",
+        },
+      ],
+    },
+
+    {
+      title: "مرطبات",
+      image: moratabatImg,
+
+      items: [
+        {
+          name: "بيبسي",
+          price: "70,000",
+        },
+
+        {
+          name: "مياه صغيرة",
+          price: "50,000",
+        },
+
+        {
+          name: "لبن عيران",
+          price: "70,000",
+        },
+      ],
+    },
+
+    {
+      title: "مشروبات ساخنة",
+      image: hotDrinksImg,
+
+      items: [
+        {
+          name: "قهوة",
+          price: "100,000",
+        },
+
+        {
+          name: "كابتشينو",
+          price: "150,000",
+        },
+
+        {
+          name: "نسكافيه",
+          price: "150,000",
+        },
+      ],
+    },
+
+    {
+      title: "عصائر فرش",
+      image: freshJuiceImg,
+
+      items: [
+        {
+          name: "برتقال",
+          price: "200,000",
+        },
+
+        {
+          name: "مانجو",
+          price: "300,000",
+        },
+
+        {
+          name: "فريز",
+          price: "300,000",
+        },
+      ],
+    },
+
+    {
+      title: "Mix Juice",
+      image: mixJuiceImg,
+
+      items: [
+        {
+          name: "فريز وتوت",
+          price: "300,000",
+        },
+
+        {
+          name: "موز وحليب",
+          price: "200,000",
+        },
+
+        {
+          name: "كيوي ونعنع",
+          price: "300,000",
+        },
+      ],
+    },
+
+    {
+      title: "كوكتيلات",
+      image: cocktailsImg,
+
+      items: [
+        {
+          name: "امبراطور",
+          price: "450,000",
+        },
+
+        {
+          name: "افوكا",
+          price: "500,000",
+        },
+
+        {
+          name: "قشطة الملك",
+          price: "450,000",
+        },
+      ],
+    },
+
+    {
+      title: "مشروبات خاصة",
+      image: mashroubatKhasaImg,
+
+      items: [
+        {
+          name: "اسر كوفي",
+          price: "200,000",
+        },
+
+        {
+          name: "اسر نسكويك",
+          price: "200,000",
+        },
+
+        {
+          name: "اسر شوكليت",
+          price: "200,000",
+        },
+      ],
+    },
+
+    {
+      title: "صحون",
+      image: sohounImg,
+
+      items: [
+        {
+          name: "قشطة + مكسرات + عسل",
+          price: "1,200,000",
+        },
+
+        {
+          name: "افوكا + قشطة",
+          price: "1,100,000",
+        },
+      ],
+    },
+
+    {
+      title: "عصير",
+      image: ananiAsirImg,
+
+      items: [
+        {
+          name: "تفاح",
+          price: "500,000",
+        },
+
+        {
+          name: "برتقال",
+          price: "450,000",
+        },
+
+        {
+          name: "كوكتيل",
+          price: "700,000",
+        },
+      ],
+    },
+
+  ];
+
+  const filteredMenu = menu.map((section) => ({
+    ...section,
+
+    items: section.items.filter(
+      (item) =>
+        item.name.includes(search) ||
+        (item.desc && item.desc.includes(search))
+    ),
+  }));
 
   return (
+
     <div className="page">
 
       <div className="hero">
-        <h1 className="title">مطعم الملك</h1>
+
+        <div className="royal-crown">
+          ♛
+        </div>
+
+        <h1 className="title">
+          الملك
+        </h1>
 
         <p className="subtitle">
           ROYAL TASTE EXPERIENCE
         </p>
 
         <input
+          type="text"
+          placeholder="ابحث في القائمة..."
           className="search"
-          placeholder="ابحث عن طبقك"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+
       </div>
 
-      {Object.entries(filtered).map(([category, items]) => (
-        <section className="section" key={category}>
+      {filteredMenu.map((section, index) => (
 
-          <h2 className="category">
-            {category}
-          </h2>
+        section.items.length > 0 && (
 
-          <div className="items">
+          <div key={index} className="menu-section">
 
-            {items.map((item, index) => (
-              <div className="item" key={index}>
+            <div className="section-banner">
 
-                <div className="text">
-                  <div className="name">
-                    {item.name}
+              <img
+                src={section.image}
+                alt={section.title}
+              />
+
+              <div className="section-overlay"></div>
+
+              <h2 className="section-title">
+                {section.title}
+              </h2>
+
+            </div>
+
+            <div className="items-container">
+
+              {section.items.map((item, i) => (
+
+                <div key={i} className="item">
+
+                  <div className="text">
+
+                    <div className="name">
+                      {item.name}
+                    </div>
+
+                    {item.desc && (
+                      <div className="desc">
+                        {item.desc}
+                      </div>
+                    )}
+
                   </div>
 
-                  {item.desc && (
-                    <div className="desc">
-                      {item.desc}
-                    </div>
-                  )}
+                  <div className="price">
+                    {item.price}
+                  </div>
+
                 </div>
 
-                <div className="price">
-                  {item.price}
-                </div>
+              ))}
 
-              </div>
-            ))}
+            </div>
 
           </div>
 
-        </section>
+        )
+
       ))}
 
       <footer className="footer">
@@ -164,5 +432,7 @@ export default function App() {
       </footer>
 
     </div>
+
   );
+
 }
