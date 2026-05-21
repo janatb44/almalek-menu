@@ -353,11 +353,11 @@ export default function App() {
         </div>
 
         <h1 className="title">
-          الملك
+            مطعم الملك
         </h1>
 
         <p className="subtitle">
-          ROYAL TASTE EXPERIENCE
+          الاول دون منازع
         </p>
 
         <input
