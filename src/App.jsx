@@ -4,7 +4,6 @@ import "./index.css";
 /* IMAGES */
 
 import ananiAsirImg from "./assets/ananiAsir.png";
-import mokabelatImg from "./assets/mokabelat.png";
 import cocktailsImg from "./assets/cocks.png";
 import faroujImg from "./assets/farouj.png";
 import freshJuiceImg from "./assets/freshJuice.png";
@@ -12,6 +11,7 @@ import hotDrinksImg from "./assets/hotDrinks.png";
 import mashawiImg from "./assets/mashawi.png";
 import mashroubatKhasaImg from "./assets/mashroubatKhasa.png";
 import mixJuiceImg from "./assets/mixJuice.png";
+import mokabelatImg from "./assets/mokabelat.png";
 import moratabatImg from "./assets/moratebat.png";
 import sandwichImg from "./assets/sandwich.png";
 import shawarmaImg from "./assets/shawarma.png";
@@ -25,10 +25,11 @@ export default function App() {
   const menu = [
 
     {
-      title: "ساندويشات",
+      title: "ساندويش الملك",
       image: sandwichImg,
 
       items: [
+
         {
           name: "كريسبي",
           price: "450,000",
@@ -36,104 +37,23 @@ export default function App() {
         },
 
         {
+          name: "تشيز طاووق",
+          price: "450,000",
+          desc: "ثوم - بطاطا - جبنة موزاريلا",
+        },
+
+        {
+          name: "برغر",
+          price: "450,000",
+          desc: "مايونيز - كتشب - سلطة - بطاطا",
+        },
+
+        {
           name: "تشيز برغر",
           price: "450,000",
-          desc: "صوص شدر - بطاطا - مايونيز - خس",
+          desc: "صوص شدر - بطاطا - مايونيز - خس - بندورة - جبنة موزاريلا",
         },
 
-        {
-          name: "فاهيتا",
-          price: "450,000",
-          desc: "صوص أفوكا - خس - ذرة",
-        },
-      ],
-    },
-
-    {
-      title: "شاورما",
-      image: shawarmaImg,
-
-      items: [
-        {
-          name: "شاورما دجاج دبل",
-          price: "300,000",
-        },
-
-        {
-          name: "شاورما لحمة كبيرة",
-          price: "350,000",
-        },
-
-        {
-          name: "كيلو شاورما دجاج",
-          price: "1,500,000",
-        },
-      ],
-    },
-
-    {
-      title: "مشاوي",
-      image: mashawiImg,
-
-      items: [
-        {
-          name: "سندوش كفتة",
-          price: "400,000",
-        },
-
-        {
-          name: "سندوش شقف",
-          price: "400,000",
-        },
-
-        {
-          name: "وجبة مشاوي مشكل",
-          price: "600,000",
-        },
-      ],
-    },
-
-    {
-      title: "وجبات",
-      image: wajabatImg,
-
-      items: [
-        {
-          name: "وجبة زنجر",
-          price: "600,000",
-        },
-
-        {
-          name: "وجبة شاورما 2x",
-          price: "650,000",
-        },
-
-        {
-          name: "كريسبي دجاج 5 قطع",
-          price: "600,000",
-        },
-      ],
-    },
-
-    {
-      title: "فروج",
-      image: faroujImg,
-
-      items: [
-        {
-          name: "فروج فحم",
-          price: "1,250,000",
-        },
-
-        {
-          name: "فروج غاز",
-          price: "1,150,000",
-        },
-
-        {
-          name: "نصف فروج غاز",
-          price: "700,000",
-        },
       ],
     },
 
@@ -142,42 +62,26 @@ export default function App() {
       image: mokabelatImg,
 
       items: [
-        {
-          name: "صحن بطاطا صغير",
-          price: "150,000",
-        },
 
-        {
-          name: "صحن حمص اكسترا",
-          price: "250,000",
-        },
+        { name: "صحن بطاطا صغير", price: "150,000" },
+        { name: "صحن بطاطا وسط", price: "200,000" },
+        { name: "صحن بطاطا كبير", price: "300,000" },
+        { name: "صحن حمص اكسترا", price: "250,000" },
+        { name: "صحن ثوم", price: "100,000" },
 
-        {
-          name: "صحن ثوم",
-          price: "100,000",
-        },
       ],
     },
 
     {
-      title: "مرطبات",
+      title: "المرطبات",
       image: moratabatImg,
 
       items: [
-        {
-          name: "بيبسي",
-          price: "70,000",
-        },
 
-        {
-          name: "مياه صغيرة",
-          price: "50,000",
-        },
+        { name: "لبن عيران", price: "70,000" },
+        { name: "بيبسي بلاستيك", price: "70,000" },
+        { name: "مياه صغيرة", price: "50,000" },
 
-        {
-          name: "لبن عيران",
-          price: "70,000",
-        },
       ],
     },
 
@@ -186,20 +90,87 @@ export default function App() {
       image: hotDrinksImg,
 
       items: [
+
+        { name: "قهوة", price: "100,000" },
+        { name: "كابتشينو", price: "150,000" },
+        { name: "نسكافيه", price: "150,000" },
+
+      ],
+    },
+
+    {
+      title: "مشاوي",
+      image: mashawiImg,
+
+      items: [
+
+        { name: "سندوش كفتة", price: "400,000" },
+        { name: "سندوش شقف", price: "400,000" },
+        { name: "وجبة مشاوي 3 سيخ مشكل", price: "600,000" },
+
+      ],
+    },
+
+    {
+      title: "فروج",
+      image: faroujImg,
+
+      items: [
+
+        { name: "فروج فحم", price: "1,250,000" },
+        { name: "فروج غاز", price: "1,150,000" },
+        { name: "نصف فروج غاز", price: "700,000" },
+
+      ],
+    },
+
+    {
+      title: "الوجبات",
+      image: wajabatImg,
+
+      items: [
+
+        { name: "كريسبي دجاج 5 قطع", price: "600,000" },
+        { name: "وجبة زنجر", price: "600,000" },
+        { name: "وجبة شاورما 2x", price: "650,000" },
+
+      ],
+    },
+
+    {
+      title: "شاورما",
+      image: shawarmaImg,
+
+      items: [
+
+        { name: "شاورما دجاج دبل", price: "300,000" },
+        { name: "شاورما لحمه كبيرة", price: "350,000" },
+        { name: "كيلو شاورما دجاج", price: "1,500,000" },
+
+      ],
+    },
+
+    {
+      title: "Mix عصائر",
+      image: mixJuiceImg,
+
+      items: [
+
         {
-          name: "قهوة",
-          price: "100,000",
+          name: "جزر وتفاح",
+          price: "وسط: 200,000 | كبير: 250,000",
         },
 
         {
-          name: "كابتشينو",
-          price: "150,000",
+          name: "فريز وتوت",
+          price: "وسط: 250,000 | كبير: 300,000",
         },
 
         {
-          name: "نسكافيه",
-          price: "150,000",
+          name: "موز وحليب",
+          price: "وسط: 150,000 | كبير: 200,000",
         },
+
       ],
     },
 
@@ -208,42 +179,22 @@ export default function App() {
       image: freshJuiceImg,
 
       items: [
+
         {
           name: "برتقال",
-          price: "200,000",
+          price: "وسط: 150,000 | كبير: 200,000",
         },
 
         {
           name: "مانجو",
-          price: "300,000",
+          price: "وسط: 250,000 | كبير: 300,000",
         },
 
         {
           name: "فريز",
-          price: "300,000",
-        },
-      ],
-    },
-
-    {
-      title: "Mix Juice",
-      image: mixJuiceImg,
-
-      items: [
-        {
-          name: "فريز وتوت",
-          price: "300,000",
+          price: "وسط: 250,000 | كبير: 300,000",
         },
 
-        {
-          name: "موز وحليب",
-          price: "200,000",
-        },
-
-        {
-          name: "كيوي ونعنع",
-          price: "300,000",
-        },
       ],
     },
 
@@ -252,42 +203,17 @@ export default function App() {
       image: cocktailsImg,
 
       items: [
+
         {
           name: "امبراطور",
-          price: "450,000",
+          price: "وسط: 350 | كبير: 450",
         },
 
         {
           name: "افوكا",
-          price: "500,000",
+          price: "وسط: 400 | كبير: 500",
         },
 
-        {
-          name: "قشطة الملك",
-          price: "450,000",
-        },
-      ],
-    },
-
-    {
-      title: "مشروبات خاصة",
-      image: mashroubatKhasaImg,
-
-      items: [
-        {
-          name: "اسر كوفي",
-          price: "200,000",
-        },
-
-        {
-          name: "اسر نسكويك",
-          price: "200,000",
-        },
-
-        {
-          name: "اسر شوكليت",
-          price: "200,000",
-        },
       ],
     },
 
@@ -296,37 +222,38 @@ export default function App() {
       image: sohounImg,
 
       items: [
-        {
-          name: "قشطة + مكسرات + عسل",
-          price: "1,200,000",
-        },
 
         {
-          name: "افوكا + قشطة",
-          price: "1,100,000",
+          name: "قشطة + مكسرات + عسل",
+          price: "وسط: 1,000,000 | كبير: 1,200,000",
         },
+
       ],
     },
 
     {
-      title: "عصير",
+      title: "قناني عصير",
       image: ananiAsirImg,
 
       items: [
-        {
-          name: "تفاح",
-          price: "500,000",
-        },
 
-        {
-          name: "برتقال",
-          price: "450,000",
-        },
+        { name: "تفاح", price: "500,000" },
+        { name: "برتقال", price: "450,000" },
+        { name: "مانجو", price: "800,000" },
 
-        {
-          name: "كوكتيل",
-          price: "700,000",
-        },
+      ],
+    },
+
+    {
+      title: "مشروبات خاصة",
+      image: mashroubatKhasaImg,
+
+      items: [
+
+        { name: "اسر كوفي", price: "200,000" },
+        { name: "اسر نسكويك", price: "200,000" },
+        { name: "اسر شوكليت", price: "200,000" },
+
       ],
     },
 
@@ -353,11 +280,11 @@ export default function App() {
         </div>
 
         <h1 className="title">
-            مطعم الملك
+          مطعم الملك
         </h1>
 
         <p className="subtitle">
-          الاول دون منازع
+          الأول دون منازع 
         </p>
 
         <input
