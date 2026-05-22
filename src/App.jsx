@@ -493,11 +493,11 @@ export default function App() {
 
       items: [
 
-        { name: "اسر لنيه", price: "200,000" },
-        { name: "اسر كابتشينو", price: "200,000" },
-        { name: "اسر نسكويك", price: "200,000" },
-        { name: "اسر كوفي", price: "200,000" },
-        { name: "اسر شوكليت", price: "200,000" },
+        { name: "ايس لاتيه", price: "200,000" },
+        { name: "ايس كابتشينو", price: "200,000" },
+        { name: "ايس نسكويك", price: "200,000" },
+        { name: "ايس كوفي", price: "200,000" },
+        { name: "ايس شوكليت", price: "200,000" },
 
       ],
     },
@@ -522,11 +522,11 @@ export default function App() {
         <div className="royal-crown">♛</div>
 
         <h1 className="title">
-          الملك
+          مطعم الملك
         </h1>
 
         <p className="subtitle">
-          ROYAL TASTE EXPERIENCE
+          الأول دون منازع
         </p>
 
         <input
@@ -597,7 +597,7 @@ export default function App() {
       ))}
 
       <footer className="footer">
-        Crafted for a premium royal dining experience ✨
+        دورس -الطريق العام ✨
       </footer>
 
     </div>
